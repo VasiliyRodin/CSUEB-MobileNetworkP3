@@ -8,7 +8,7 @@ def main(host,port):
         s=socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.bind(("",0))
         hp = socket.gethostbyname(host)
-        s.sendto(str(seqNumber),(hp,port))
+        s.sendto("1|"+ str(seqNumber),(hp,port))
         s.close()
         print "Sequence Number = %d Time = %s Dest = %s/%d" %(seqNumber, time.time(),hp,port)
         time.sleep(1)
