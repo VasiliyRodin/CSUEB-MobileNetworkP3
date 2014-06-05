@@ -11,9 +11,9 @@ def server(foreignAgentPort, mobileNodeAddress, mobileNodePort):
     print sockName
     while True:
         data,address = s.recvfrom(1024)
-        utils.sendData(mobileNodeAddress,mobileNodeAddress,data)
-        print "Sequence Number = %d Time = %s Forwarded to %s/%d" %(data, time.time(),hp,mobileNodePort)
-   s.close()  
+        utils.sendData(mobileNodeAddress,mobileNodePort,data)
+        print "Sequence Number = %s Time = %s Forwarded to %s/%d" %(data, time.time(),socket.gethostbyname(mobileNodeAddress),mobileNodePort)
+    s.close()  
 
 
 server(int(sys.argv[1]),sys.argv[2],int(sys.argv[3]))
